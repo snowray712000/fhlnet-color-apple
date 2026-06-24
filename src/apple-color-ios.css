@@ -1,0 +1,472 @@
+/* Apple iOS System Colors
+ * Source: https://mar.codes/apple-colors
+ * Generated from Xcode 12.5, iOS 14.5
+ *
+ * Each color has 4 variants:
+ *   --{name}-light                   Light mode
+ *   --{name}-dark                    Dark mode
+ *   --{name}-increasedContrastLight  Increased Contrast + Light
+ *   --{name}-increasedContrastDark   Increased Contrast + Dark
+ */
+
+:root {
+  /* Standard Colors */
+  --systemBlue-light: #007AFF;
+  --systemBlue-dark: #0A84FF;
+  --systemBlue-increasedContrastLight: #0040DD;
+  --systemBlue-increasedContrastDark: #409CFF;
+  --systemGreen-light: #34C759;
+  --systemGreen-dark: #30D158;
+  --systemGreen-increasedContrastLight: #248A3D;
+  --systemGreen-increasedContrastDark: #30DB5B;
+  --systemIndigo-light: #5856D6;
+  --systemIndigo-dark: #5E5CE6;
+  --systemIndigo-increasedContrastLight: #3634A3;
+  --systemIndigo-increasedContrastDark: #7D7AFF;
+  --systemOrange-light: #FF9500;
+  --systemOrange-dark: #FF9F0A;
+  --systemOrange-increasedContrastLight: #C93400;
+  --systemOrange-increasedContrastDark: #FFB340;
+  --systemPink-light: #FF2D55;
+  --systemPink-dark: #FF375F;
+  --systemPink-increasedContrastLight: #D30F45;
+  --systemPink-increasedContrastDark: #FF6482;
+  --systemPurple-light: #AF52DE;
+  --systemPurple-dark: #BF5AF2;
+  --systemPurple-increasedContrastLight: #8944AB;
+  --systemPurple-increasedContrastDark: #DA8FFF;
+  --systemRed-light: #FF3B30;
+  --systemRed-dark: #FF453A;
+  --systemRed-increasedContrastLight: #D70015;
+  --systemRed-increasedContrastDark: #FF6961;
+  --systemTeal-light: #5AC8FA;
+  --systemTeal-dark: #64D2FF;
+  --systemTeal-increasedContrastLight: #0071A4;
+  --systemTeal-increasedContrastDark: #70D7FF;
+  --systemYellow-light: #FFCC00;
+  --systemYellow-dark: #FFD60A;
+  --systemYellow-increasedContrastLight: #B36200;
+  --systemYellow-increasedContrastDark: #FFD426;
+
+  /* Gray Colors */
+  --systemGray-light: #8E8E93;
+  --systemGray-dark: #8E8E93;
+  --systemGray-increasedContrastLight: #6C6C70;
+  --systemGray-increasedContrastDark: #AEAEB2;
+  --systemGray2-light: #AEAEB2;
+  --systemGray2-dark: #636366;
+  --systemGray2-increasedContrastLight: #8E8E93;
+  --systemGray2-increasedContrastDark: #7C7C80;
+  --systemGray3-light: #C7C7CC;
+  --systemGray3-dark: #48484A;
+  --systemGray3-increasedContrastLight: #AEAEB2;
+  --systemGray3-increasedContrastDark: #545456;
+  --systemGray4-light: #D1D1D6;
+  --systemGray4-dark: #3A3A3C;
+  --systemGray4-increasedContrastLight: #BCBCC0;
+  --systemGray4-increasedContrastDark: #444446;
+  --systemGray5-light: #E5E5EA;
+  --systemGray5-dark: #2C2C2E;
+  --systemGray5-increasedContrastLight: #D8D8DC;
+  --systemGray5-increasedContrastDark: #363638;
+  --systemGray6-light: #F2F2F7;
+  --systemGray6-dark: #1C1C1E;
+  --systemGray6-increasedContrastLight: #EBEBF0;
+  --systemGray6-increasedContrastDark: #242426;
+
+  /* Background Colors */
+  --systemBackground-light: #FFFFFF;
+  --systemBackground-dark: #000000;
+  --systemBackground-increasedContrastLight: #FFFFFF;
+  --systemBackground-increasedContrastDark: #000000;
+  --secondarySystemBackground-light: #F2F2F7;
+  --secondarySystemBackground-dark: #1C1C1E;
+  --secondarySystemBackground-increasedContrastLight: #EBEBF0;
+  --secondarySystemBackground-increasedContrastDark: #242426;
+  --tertiarySystemBackground-light: #FFFFFF;
+  --tertiarySystemBackground-dark: #2C2C2E;
+  --tertiarySystemBackground-increasedContrastLight: #FFFFFF;
+  --tertiarySystemBackground-increasedContrastDark: #363638;
+  --systemGroupedBackground-light: #F2F2F7;
+  --systemGroupedBackground-dark: #000000;
+  --systemGroupedBackground-increasedContrastLight: #EBEBF0;
+  --systemGroupedBackground-increasedContrastDark: #000000;
+  --secondarySystemGroupedBackground-light: #FFFFFF;
+  --secondarySystemGroupedBackground-dark: #1C1C1E;
+  --secondarySystemGroupedBackground-increasedContrastLight: #FFFFFF;
+  --secondarySystemGroupedBackground-increasedContrastDark: #242426;
+  --tertiarySystemGroupedBackground-light: #F2F2F7;
+  --tertiarySystemGroupedBackground-dark: #2C2C2E;
+  --tertiarySystemGroupedBackground-increasedContrastLight: #EBEBF0;
+  --tertiarySystemGroupedBackground-increasedContrastDark: #363638;
+
+  /* Fill Colors */
+  --systemFill-light: #78788033;
+  --systemFill-dark: #7878805C;
+  --systemFill-increasedContrastLight: #78788047;
+  --systemFill-increasedContrastDark: #78788070;
+  --secondarySystemFill-light: #78788028;
+  --secondarySystemFill-dark: #78788051;
+  --secondarySystemFill-increasedContrastLight: #7878803D;
+  --secondarySystemFill-increasedContrastDark: #78788066;
+  --tertiarySystemFill-light: #7676801E;
+  --tertiarySystemFill-dark: #7676803D;
+  --tertiarySystemFill-increasedContrastLight: #76768033;
+  --tertiarySystemFill-increasedContrastDark: #76768051;
+  --quaternarySystemFill-light: #74748014;
+  --quaternarySystemFill-dark: #7676802E;
+  --quaternarySystemFill-increasedContrastLight: #74748028;
+  --quaternarySystemFill-increasedContrastDark: #76768042;
+
+  /* Label & Text Colors */
+  --lightText-light: #FFFFFF99;
+  --lightText-dark: #FFFFFF99;
+  --lightText-increasedContrastLight: #FFFFFF99;
+  --lightText-increasedContrastDark: #FFFFFF99;
+  --darkText-light: #000000;
+  --darkText-dark: #000000;
+  --darkText-increasedContrastLight: #000000;
+  --darkText-increasedContrastDark: #000000;
+  --label-light: #000000;
+  --label-dark: #FFFFFF;
+  --label-increasedContrastLight: #000000;
+  --label-increasedContrastDark: #FFFFFF;
+  --secondaryLabel-light: #3C3C4399;
+  --secondaryLabel-dark: #EBEBF599;
+  --secondaryLabel-increasedContrastLight: #3C3C43CC;
+  --secondaryLabel-increasedContrastDark: #EBEBF5B3;
+  --tertiaryLabel-light: #3C3C434C;
+  --tertiaryLabel-dark: #EBEBF54C;
+  --tertiaryLabel-increasedContrastLight: #3C3C43B3;
+  --tertiaryLabel-increasedContrastDark: #EBEBF58C;
+  --quaternaryLabel-light: #3C3C432E;
+  --quaternaryLabel-dark: #EBEBF52E;
+  --quaternaryLabel-increasedContrastLight: #3C3C438C;
+  --quaternaryLabel-increasedContrastDark: #EBEBF566;
+  --link-light: #007AFF;
+  --link-dark: #0984FF;
+  --link-increasedContrastLight: #007AFF;
+  --link-increasedContrastDark: #0984FF;
+  --placeholderText-light: #3C3C434C;
+  --placeholderText-dark: #EBEBF54C;
+  --placeholderText-increasedContrastLight: #3C3C43B3;
+  --placeholderText-increasedContrastDark: #EBEBF58C;
+  --separator-light: #3C3C434A;
+  --separator-dark: #54545899;
+  --separator-increasedContrastLight: #3C3C435E;
+  --separator-increasedContrastDark: #545458AE;
+  --opaqueSeparator-light: #C6C6C8;
+  --opaqueSeparator-dark: #38383A;
+  --opaqueSeparator-increasedContrastLight: #C6C6C8;
+  --opaqueSeparator-increasedContrastDark: #38383A;
+
+  /* Active theme aliases (default: light) */
+  --systemBlue: var(--systemBlue-light);
+  --systemGreen: var(--systemGreen-light);
+  --systemIndigo: var(--systemIndigo-light);
+  --systemOrange: var(--systemOrange-light);
+  --systemPink: var(--systemPink-light);
+  --systemPurple: var(--systemPurple-light);
+  --systemRed: var(--systemRed-light);
+  --systemTeal: var(--systemTeal-light);
+  --systemYellow: var(--systemYellow-light);
+  --systemGray: var(--systemGray-light);
+  --systemGray2: var(--systemGray2-light);
+  --systemGray3: var(--systemGray3-light);
+  --systemGray4: var(--systemGray4-light);
+  --systemGray5: var(--systemGray5-light);
+  --systemGray6: var(--systemGray6-light);
+  --systemBackground: var(--systemBackground-light);
+  --secondarySystemBackground: var(--secondarySystemBackground-light);
+  --tertiarySystemBackground: var(--tertiarySystemBackground-light);
+  --systemGroupedBackground: var(--systemGroupedBackground-light);
+  --secondarySystemGroupedBackground: var(--secondarySystemGroupedBackground-light);
+  --tertiarySystemGroupedBackground: var(--tertiarySystemGroupedBackground-light);
+  --systemFill: var(--systemFill-light);
+  --secondarySystemFill: var(--secondarySystemFill-light);
+  --tertiarySystemFill: var(--tertiarySystemFill-light);
+  --quaternarySystemFill: var(--quaternarySystemFill-light);
+  --lightText: var(--lightText-light);
+  --darkText: var(--darkText-light);
+  --label: var(--label-light);
+  --secondaryLabel: var(--secondaryLabel-light);
+  --tertiaryLabel: var(--tertiaryLabel-light);
+  --quaternaryLabel: var(--quaternaryLabel-light);
+  --link: var(--link-light);
+  --placeholderText: var(--placeholderText-light);
+  --separator: var(--separator-light);
+  --opaqueSeparator: var(--opaqueSeparator-light);
+}
+
+:root[data-theme="dark"] {
+  --systemBlue: var(--systemBlue-dark);
+    --systemGreen: var(--systemGreen-dark);
+    --systemIndigo: var(--systemIndigo-dark);
+    --systemOrange: var(--systemOrange-dark);
+    --systemPink: var(--systemPink-dark);
+    --systemPurple: var(--systemPurple-dark);
+    --systemRed: var(--systemRed-dark);
+    --systemTeal: var(--systemTeal-dark);
+    --systemYellow: var(--systemYellow-dark);
+    --systemGray: var(--systemGray-dark);
+    --systemGray2: var(--systemGray2-dark);
+    --systemGray3: var(--systemGray3-dark);
+    --systemGray4: var(--systemGray4-dark);
+    --systemGray5: var(--systemGray5-dark);
+    --systemGray6: var(--systemGray6-dark);
+    --systemBackground: var(--systemBackground-dark);
+    --secondarySystemBackground: var(--secondarySystemBackground-dark);
+    --tertiarySystemBackground: var(--tertiarySystemBackground-dark);
+    --systemGroupedBackground: var(--systemGroupedBackground-dark);
+    --secondarySystemGroupedBackground: var(--secondarySystemGroupedBackground-dark);
+    --tertiarySystemGroupedBackground: var(--tertiarySystemGroupedBackground-dark);
+    --systemFill: var(--systemFill-dark);
+    --secondarySystemFill: var(--secondarySystemFill-dark);
+    --tertiarySystemFill: var(--tertiarySystemFill-dark);
+    --quaternarySystemFill: var(--quaternarySystemFill-dark);
+    --lightText: var(--lightText-dark);
+    --darkText: var(--darkText-dark);
+    --label: var(--label-dark);
+    --secondaryLabel: var(--secondaryLabel-dark);
+    --tertiaryLabel: var(--tertiaryLabel-dark);
+    --quaternaryLabel: var(--quaternaryLabel-dark);
+    --link: var(--link-dark);
+    --placeholderText: var(--placeholderText-dark);
+    --separator: var(--separator-dark);
+    --opaqueSeparator: var(--opaqueSeparator-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --systemBlue: var(--systemBlue-dark);
+    --systemGreen: var(--systemGreen-dark);
+    --systemIndigo: var(--systemIndigo-dark);
+    --systemOrange: var(--systemOrange-dark);
+    --systemPink: var(--systemPink-dark);
+    --systemPurple: var(--systemPurple-dark);
+    --systemRed: var(--systemRed-dark);
+    --systemTeal: var(--systemTeal-dark);
+    --systemYellow: var(--systemYellow-dark);
+    --systemGray: var(--systemGray-dark);
+    --systemGray2: var(--systemGray2-dark);
+    --systemGray3: var(--systemGray3-dark);
+    --systemGray4: var(--systemGray4-dark);
+    --systemGray5: var(--systemGray5-dark);
+    --systemGray6: var(--systemGray6-dark);
+    --systemBackground: var(--systemBackground-dark);
+    --secondarySystemBackground: var(--secondarySystemBackground-dark);
+    --tertiarySystemBackground: var(--tertiarySystemBackground-dark);
+    --systemGroupedBackground: var(--systemGroupedBackground-dark);
+    --secondarySystemGroupedBackground: var(--secondarySystemGroupedBackground-dark);
+    --tertiarySystemGroupedBackground: var(--tertiarySystemGroupedBackground-dark);
+    --systemFill: var(--systemFill-dark);
+    --secondarySystemFill: var(--secondarySystemFill-dark);
+    --tertiarySystemFill: var(--tertiarySystemFill-dark);
+    --quaternarySystemFill: var(--quaternarySystemFill-dark);
+    --lightText: var(--lightText-dark);
+    --darkText: var(--darkText-dark);
+    --label: var(--label-dark);
+    --secondaryLabel: var(--secondaryLabel-dark);
+    --tertiaryLabel: var(--tertiaryLabel-dark);
+    --quaternaryLabel: var(--quaternaryLabel-dark);
+    --link: var(--link-dark);
+    --placeholderText: var(--placeholderText-dark);
+    --separator: var(--separator-dark);
+    --opaqueSeparator: var(--opaqueSeparator-dark);
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root:not([data-theme="dark"]) {
+    --systemBlue: var(--systemBlue-increasedContrastLight);
+    --systemGreen: var(--systemGreen-increasedContrastLight);
+    --systemIndigo: var(--systemIndigo-increasedContrastLight);
+    --systemOrange: var(--systemOrange-increasedContrastLight);
+    --systemPink: var(--systemPink-increasedContrastLight);
+    --systemPurple: var(--systemPurple-increasedContrastLight);
+    --systemRed: var(--systemRed-increasedContrastLight);
+    --systemTeal: var(--systemTeal-increasedContrastLight);
+    --systemYellow: var(--systemYellow-increasedContrastLight);
+    --systemGray: var(--systemGray-increasedContrastLight);
+    --systemGray2: var(--systemGray2-increasedContrastLight);
+    --systemGray3: var(--systemGray3-increasedContrastLight);
+    --systemGray4: var(--systemGray4-increasedContrastLight);
+    --systemGray5: var(--systemGray5-increasedContrastLight);
+    --systemGray6: var(--systemGray6-increasedContrastLight);
+    --systemBackground: var(--systemBackground-increasedContrastLight);
+    --secondarySystemBackground: var(--secondarySystemBackground-increasedContrastLight);
+    --tertiarySystemBackground: var(--tertiarySystemBackground-increasedContrastLight);
+    --systemGroupedBackground: var(--systemGroupedBackground-increasedContrastLight);
+    --secondarySystemGroupedBackground: var(--secondarySystemGroupedBackground-increasedContrastLight);
+    --tertiarySystemGroupedBackground: var(--tertiarySystemGroupedBackground-increasedContrastLight);
+    --systemFill: var(--systemFill-increasedContrastLight);
+    --secondarySystemFill: var(--secondarySystemFill-increasedContrastLight);
+    --tertiarySystemFill: var(--tertiarySystemFill-increasedContrastLight);
+    --quaternarySystemFill: var(--quaternarySystemFill-increasedContrastLight);
+    --lightText: var(--lightText-increasedContrastLight);
+    --darkText: var(--darkText-increasedContrastLight);
+    --label: var(--label-increasedContrastLight);
+    --secondaryLabel: var(--secondaryLabel-increasedContrastLight);
+    --tertiaryLabel: var(--tertiaryLabel-increasedContrastLight);
+    --quaternaryLabel: var(--quaternaryLabel-increasedContrastLight);
+    --link: var(--link-increasedContrastLight);
+    --placeholderText: var(--placeholderText-increasedContrastLight);
+    --separator: var(--separator-increasedContrastLight);
+    --opaqueSeparator: var(--opaqueSeparator-increasedContrastLight);
+  }
+
+  :root[data-theme="dark"] {
+    --systemBlue: var(--systemBlue-increasedContrastDark);
+    --systemGreen: var(--systemGreen-increasedContrastDark);
+    --systemIndigo: var(--systemIndigo-increasedContrastDark);
+    --systemOrange: var(--systemOrange-increasedContrastDark);
+    --systemPink: var(--systemPink-increasedContrastDark);
+    --systemPurple: var(--systemPurple-increasedContrastDark);
+    --systemRed: var(--systemRed-increasedContrastDark);
+    --systemTeal: var(--systemTeal-increasedContrastDark);
+    --systemYellow: var(--systemYellow-increasedContrastDark);
+    --systemGray: var(--systemGray-increasedContrastDark);
+    --systemGray2: var(--systemGray2-increasedContrastDark);
+    --systemGray3: var(--systemGray3-increasedContrastDark);
+    --systemGray4: var(--systemGray4-increasedContrastDark);
+    --systemGray5: var(--systemGray5-increasedContrastDark);
+    --systemGray6: var(--systemGray6-increasedContrastDark);
+    --systemBackground: var(--systemBackground-increasedContrastDark);
+    --secondarySystemBackground: var(--secondarySystemBackground-increasedContrastDark);
+    --tertiarySystemBackground: var(--tertiarySystemBackground-increasedContrastDark);
+    --systemGroupedBackground: var(--systemGroupedBackground-increasedContrastDark);
+    --secondarySystemGroupedBackground: var(--secondarySystemGroupedBackground-increasedContrastDark);
+    --tertiarySystemGroupedBackground: var(--tertiarySystemGroupedBackground-increasedContrastDark);
+    --systemFill: var(--systemFill-increasedContrastDark);
+    --secondarySystemFill: var(--secondarySystemFill-increasedContrastDark);
+    --tertiarySystemFill: var(--tertiarySystemFill-increasedContrastDark);
+    --quaternarySystemFill: var(--quaternarySystemFill-increasedContrastDark);
+    --lightText: var(--lightText-increasedContrastDark);
+    --darkText: var(--darkText-increasedContrastDark);
+    --label: var(--label-increasedContrastDark);
+    --secondaryLabel: var(--secondaryLabel-increasedContrastDark);
+    --tertiaryLabel: var(--tertiaryLabel-increasedContrastDark);
+    --quaternaryLabel: var(--quaternaryLabel-increasedContrastDark);
+    --link: var(--link-increasedContrastDark);
+    --placeholderText: var(--placeholderText-increasedContrastDark);
+    --separator: var(--separator-increasedContrastDark);
+    --opaqueSeparator: var(--opaqueSeparator-increasedContrastDark);
+  }
+}
+
+/* Explicit high-contrast themes (for manual theme switching) */
+:root[data-theme="hc-light"] {
+  --systemBlue: var(--systemBlue-increasedContrastLight);
+  --systemGreen: var(--systemGreen-increasedContrastLight);
+  --systemIndigo: var(--systemIndigo-increasedContrastLight);
+  --systemOrange: var(--systemOrange-increasedContrastLight);
+  --systemPink: var(--systemPink-increasedContrastLight);
+  --systemPurple: var(--systemPurple-increasedContrastLight);
+  --systemRed: var(--systemRed-increasedContrastLight);
+  --systemTeal: var(--systemTeal-increasedContrastLight);
+  --systemYellow: var(--systemYellow-increasedContrastLight);
+  --systemGray: var(--systemGray-increasedContrastLight);
+  --systemGray2: var(--systemGray2-increasedContrastLight);
+  --systemGray3: var(--systemGray3-increasedContrastLight);
+  --systemGray4: var(--systemGray4-increasedContrastLight);
+  --systemGray5: var(--systemGray5-increasedContrastLight);
+  --systemGray6: var(--systemGray6-increasedContrastLight);
+  --systemBackground: var(--systemBackground-increasedContrastLight);
+  --secondarySystemBackground: var(--secondarySystemBackground-increasedContrastLight);
+  --tertiarySystemBackground: var(--tertiarySystemBackground-increasedContrastLight);
+  --systemGroupedBackground: var(--systemGroupedBackground-increasedContrastLight);
+  --secondarySystemGroupedBackground: var(--secondarySystemGroupedBackground-increasedContrastLight);
+  --tertiarySystemGroupedBackground: var(--tertiarySystemGroupedBackground-increasedContrastLight);
+  --systemFill: var(--systemFill-increasedContrastLight);
+  --secondarySystemFill: var(--secondarySystemFill-increasedContrastLight);
+  --tertiarySystemFill: var(--tertiarySystemFill-increasedContrastLight);
+  --quaternarySystemFill: var(--quaternarySystemFill-increasedContrastLight);
+  --lightText: var(--lightText-increasedContrastLight);
+  --darkText: var(--darkText-increasedContrastLight);
+  --label: var(--label-increasedContrastLight);
+  --secondaryLabel: var(--secondaryLabel-increasedContrastLight);
+  --tertiaryLabel: var(--tertiaryLabel-increasedContrastLight);
+  --quaternaryLabel: var(--quaternaryLabel-increasedContrastLight);
+  --link: var(--link-increasedContrastLight);
+  --placeholderText: var(--placeholderText-increasedContrastLight);
+  --separator: var(--separator-increasedContrastLight);
+  --opaqueSeparator: var(--opaqueSeparator-increasedContrastLight);
+}
+
+:root[data-theme="hc-dark"] {
+  --systemBlue: var(--systemBlue-increasedContrastDark);
+  --systemGreen: var(--systemGreen-increasedContrastDark);
+  --systemIndigo: var(--systemIndigo-increasedContrastDark);
+  --systemOrange: var(--systemOrange-increasedContrastDark);
+  --systemPink: var(--systemPink-increasedContrastDark);
+  --systemPurple: var(--systemPurple-increasedContrastDark);
+  --systemRed: var(--systemRed-increasedContrastDark);
+  --systemTeal: var(--systemTeal-increasedContrastDark);
+  --systemYellow: var(--systemYellow-increasedContrastDark);
+  --systemGray: var(--systemGray-increasedContrastDark);
+  --systemGray2: var(--systemGray2-increasedContrastDark);
+  --systemGray3: var(--systemGray3-increasedContrastDark);
+  --systemGray4: var(--systemGray4-increasedContrastDark);
+  --systemGray5: var(--systemGray5-increasedContrastDark);
+  --systemGray6: var(--systemGray6-increasedContrastDark);
+  --systemBackground: var(--systemBackground-increasedContrastDark);
+  --secondarySystemBackground: var(--secondarySystemBackground-increasedContrastDark);
+  --tertiarySystemBackground: var(--tertiarySystemBackground-increasedContrastDark);
+  --systemGroupedBackground: var(--systemGroupedBackground-increasedContrastDark);
+  --secondarySystemGroupedBackground: var(--secondarySystemGroupedBackground-increasedContrastDark);
+  --tertiarySystemGroupedBackground: var(--tertiarySystemGroupedBackground-increasedContrastDark);
+  --systemFill: var(--systemFill-increasedContrastDark);
+  --secondarySystemFill: var(--secondarySystemFill-increasedContrastDark);
+  --tertiarySystemFill: var(--tertiarySystemFill-increasedContrastDark);
+  --quaternarySystemFill: var(--quaternarySystemFill-increasedContrastDark);
+  --lightText: var(--lightText-increasedContrastDark);
+  --darkText: var(--darkText-increasedContrastDark);
+  --label: var(--label-increasedContrastDark);
+  --secondaryLabel: var(--secondaryLabel-increasedContrastDark);
+  --tertiaryLabel: var(--tertiaryLabel-increasedContrastDark);
+  --quaternaryLabel: var(--quaternaryLabel-increasedContrastDark);
+  --link: var(--link-increasedContrastDark);
+  --placeholderText: var(--placeholderText-increasedContrastDark);
+  --separator: var(--separator-increasedContrastDark);
+  --opaqueSeparator: var(--opaqueSeparator-increasedContrastDark);
+}
+
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --systemBlue: var(--systemBlue-increasedContrastDark);
+    --systemGreen: var(--systemGreen-increasedContrastDark);
+    --systemIndigo: var(--systemIndigo-increasedContrastDark);
+    --systemOrange: var(--systemOrange-increasedContrastDark);
+    --systemPink: var(--systemPink-increasedContrastDark);
+    --systemPurple: var(--systemPurple-increasedContrastDark);
+    --systemRed: var(--systemRed-increasedContrastDark);
+    --systemTeal: var(--systemTeal-increasedContrastDark);
+    --systemYellow: var(--systemYellow-increasedContrastDark);
+    --systemGray: var(--systemGray-increasedContrastDark);
+    --systemGray2: var(--systemGray2-increasedContrastDark);
+    --systemGray3: var(--systemGray3-increasedContrastDark);
+    --systemGray4: var(--systemGray4-increasedContrastDark);
+    --systemGray5: var(--systemGray5-increasedContrastDark);
+    --systemGray6: var(--systemGray6-increasedContrastDark);
+    --systemBackground: var(--systemBackground-increasedContrastDark);
+    --secondarySystemBackground: var(--secondarySystemBackground-increasedContrastDark);
+    --tertiarySystemBackground: var(--tertiarySystemBackground-increasedContrastDark);
+    --systemGroupedBackground: var(--systemGroupedBackground-increasedContrastDark);
+    --secondarySystemGroupedBackground: var(--secondarySystemGroupedBackground-increasedContrastDark);
+    --tertiarySystemGroupedBackground: var(--tertiarySystemGroupedBackground-increasedContrastDark);
+    --systemFill: var(--systemFill-increasedContrastDark);
+    --secondarySystemFill: var(--secondarySystemFill-increasedContrastDark);
+    --tertiarySystemFill: var(--tertiarySystemFill-increasedContrastDark);
+    --quaternarySystemFill: var(--quaternarySystemFill-increasedContrastDark);
+    --lightText: var(--lightText-increasedContrastDark);
+    --darkText: var(--darkText-increasedContrastDark);
+    --label: var(--label-increasedContrastDark);
+    --secondaryLabel: var(--secondaryLabel-increasedContrastDark);
+    --tertiaryLabel: var(--tertiaryLabel-increasedContrastDark);
+    --quaternaryLabel: var(--quaternaryLabel-increasedContrastDark);
+    --link: var(--link-increasedContrastDark);
+    --placeholderText: var(--placeholderText-increasedContrastDark);
+    --separator: var(--separator-increasedContrastDark);
+    --opaqueSeparator: var(--opaqueSeparator-increasedContrastDark);
+  }
+}
