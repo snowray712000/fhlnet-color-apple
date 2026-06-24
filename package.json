@@ -1,0 +1,40 @@
+{
+  "name": "@fhlnet/color-apple",
+  "version": "0.2.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "sideEffects": false,
+  "keywords": [
+    "theme",
+    "color"
+  ],
+  "scripts": {
+    "dev": "vite demo",
+    "build": "vite build demo --outDir ./../dist --emptyOutDir",
+    "build:lib": "vite build --config ./vite.config.lib.js && copy src\\index.d.ts dist\\index.d.ts",
+    "preview": "vite preview demo",
+    "test": "vitest"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "jsdom": "^29.1.1",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.5"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snowray712000/fhlnet-color-apple.git"
+  },
+  "files": [
+    "dist"
+  ]
+}
