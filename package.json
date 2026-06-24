@@ -22,7 +22,6 @@
     "dev": "vite demo",
     "build": "vite build demo --outDir ./../dist --emptyOutDir",
     "build:lib": "vite build --config ./vite.config.lib.js && copy src\\index.d.ts dist\\index.d.ts",
-    "prepublishOnly": "npm run build:lib",
     "preview": "vite preview demo",
     "test": "vitest"
   },
