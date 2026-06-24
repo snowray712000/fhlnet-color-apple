@@ -1,23 +1,32 @@
 {
   "name": "@fhlnet/color-apple",
   "version": "0.2.1",
-  "description": "",
+  "description": "Apple iOS system color CSS variables with light, dark, and high-contrast themes.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css",
+    "**/*.css"
+  ],
   "keywords": [
+    "apple",
+    "ios",
+    "color",
     "theme",
-    "color"
+    "css-variables",
+    "dark-mode",
+    "high-contrast"
   ],
   "scripts": {
     "dev": "vite demo",
     "build": "vite build demo --outDir ./../dist --emptyOutDir",
     "build:lib": "vite build --config ./vite.config.lib.js && copy src\\index.d.ts dist\\index.d.ts",
+    "prepublishOnly": "npm run build:lib",
     "preview": "vite preview demo",
     "test": "vitest"
   },
-  "author": "",
+  "author": "snowray712000",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "jsdom": "^29.1.1",
@@ -28,11 +37,17 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./css": "./dist/apple-color-ios.css",
+    "./apple-color-ios.css": "./dist/apple-color-ios.css"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/snowray712000/fhlnet-color-apple.git"
+  },
+  "homepage": "https://github.com/snowray712000/fhlnet-color-apple#readme",
+  "bugs": {
+    "url": "https://github.com/snowray712000/fhlnet-color-apple/issues"
   },
   "files": [
     "dist"
