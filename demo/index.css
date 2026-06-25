@@ -1,0 +1,17 @@
+body {
+    color: var(--label);
+    background-color: var(--systemBackground);
+}
+
+/* ── Toolbar ── */
+.toolbar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    height: 52px;
+    background: var(--systemBlue);
+    color: var(--label);
+    border-bottom: 1px solid var(--separator);
+}

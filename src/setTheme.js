@@ -4,7 +4,7 @@
  */
 export function setTheme(theme) {
     if (theme) {
-        document.documentElement.setAttribute('data-theme', theme)
+        document.documentElement.dataset.theme = theme
     } else {
         document.documentElement.removeAttribute('data-theme')
     }
