@@ -1,6 +1,6 @@
 {
   "name": "@fhlnet/color-apple",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Apple iOS system color CSS variables with light, dark, and high-contrast themes.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
