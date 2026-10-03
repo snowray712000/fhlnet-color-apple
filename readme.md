@@ -62,6 +62,16 @@ The helper updates the `data-theme` attribute on `<html>`:
 <html data-theme="dark">
 ```
 
+## cssVar (auto complete)
+
+`cssVar(name)` returns `var(--name)`. The name is typed, so your editor auto-completes the color names:
+
+```js
+import { cssVar } from '@fhlnet/color-apple'
+
+el.style.background = cssVar('systemGroupedBackground') // 'var(--systemGroupedBackground)'
+```
+
 ## CSS-only usage
 
 If your tooling supports package CSS imports, you can import the stylesheet directly:
