@@ -67,3 +67,8 @@ body {
     color: var(--label);
     border-bottom: 1px solid var(--separator);
 }
+
+/* 藍底上的連結：iOS 在主色底上用白字 */
+.toolbar a {
+    color: #FFFFFF;
+}
