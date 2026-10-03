@@ -1,7 +1,56 @@
+:root {
+    /* 使用 語意 非而直接指定 顏色 */
+    --success: var(--systemGreen);
+    --warning: var(--systemOrange);
+    --error: var(--systemRed);
+    --info: var(--systemBlue);
+    --disabled: var(--systemGray);
+
+    /* row 被選取 .selected */
+    --selectionBackground: color-mix(
+        in srgb,
+        var(--systemYellow) 20%,
+        transparent
+    )
+    
+}
+
+
+.selected {
+    background-color: var(--selectionBackground);
+}
+
+/* 手動指定：永遠蓋過 auto */
+:root[data-theme$="light"] {
+  --selectionBackground: color-mix(
+        in srgb,
+        var(--systemYellow) 13%,
+        transparent
+    )
+}
+
+
+:root[data-theme$="dark"] {
+  --selectionBackground: color-mix(
+        in srgb,
+        var(--systemYellow) 23%,
+        transparent
+    )
+}
+
+
 body {
     color: var(--label);
     background-color: var(--systemBackground);
+
+    /* 原本的 藍底字反白 */
+    ::selection {
+        background-color: var(--systemFill);
+        color: var(--accentColor); 
+    }
 }
+
+
 
 /* ── Toolbar ── */
 .toolbar {

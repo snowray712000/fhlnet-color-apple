@@ -1,0 +1,55 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--systemBackground);
+}
+
+/* Table header */
+thead {
+    background-color: var(--secondarySystemBackground);
+    color: var(--secondaryLabel);
+}
+
+th {
+    color: var(--secondaryLabel);
+    font-weight: 600;
+    /* text-align: left; */
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--separator);
+    /* white-space: nowrap; */
+}
+
+
+/* row */
+/* striped 交替列 */
+tr:nth-child(even) {
+    /* background-color: var(--secondarySystemBackground); */
+    background-color: color-mix(
+        in srgb,
+        var(--systemFill) 20%,
+        transparent
+    )
+}
+
+/* Table cells */
+td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--separator);
+    vertical-align: middle;
+}
+
+/* 互動 */
+/* tr:hover {
+    background-color: var(--systemFill);
+} */
+
+/* tr.selected:nth-child(even) {
+    background: var(--selectedRow);
+} */
+
+/* Numeric columns */
+td.number,
+th.number {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
