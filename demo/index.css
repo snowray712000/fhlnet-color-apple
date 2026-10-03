@@ -6,6 +6,9 @@
     --info: var(--systemBlue);
     --disabled: var(--systemGray);
 
+    /* App 主色 (iOS 的 tint / accent color)，預設 systemBlue */
+    --accentColor: var(--systemBlue);
+
     /* row 被選取 .selected */
     --selectionBackground: color-mix(
         in srgb,

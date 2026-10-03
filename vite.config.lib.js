@@ -11,6 +11,14 @@ export default defineConfig({
       name: 'FHLColorApple',
       formats: ['es'],
       fileName: () => 'index.js',
+      // 與 package.json exports 的 ./css、./apple-color-ios.css 同名
+      cssFileName: 'apple-color-ios',
+    },
+    rollupOptions: {
+      output: {
+        // lib 模式會把 css 抽成獨立檔，index.js 不再 import 它；補回來，import '@fhlnet/color-apple' 才會載入顏色
+        banner: "import './apple-color-ios.css'",
+      },
     },
   },
   test: {
