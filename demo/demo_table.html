@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple Color Theme — Table Demo</title>
+  <link rel="stylesheet" href="../src/apple-color-ios.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Page background ── */
+    html {
+      background: var(--systemGroupedBackground);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--label);
+      padding: 32px 24px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: var(--secondaryLabel);
+      font-size: 0.875rem;
+      margin-bottom: 20px;
+    }
+
+    /* ── Theme switcher ── */
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .toolbar button {
+      padding: 6px 16px;
+      border: 1px solid var(--separator);
+      border-radius: 8px;
+      background: var(--secondarySystemBackground);
+      color: var(--label);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+
+    .toolbar button:hover {
+      background: var(--tertiarySystemFill);
+    }
+
+    /* ── Section label ── */
+    .section-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondaryLabel);
+      margin: 32px 0 10px;
+    }
+
+    /* ── Table card wrapper ── */
+    .card {
+      /* table background */
+      background: var(--secondarySystemGroupedBackground);
+      border-radius: 12px;
+      border: 1px solid var(--separator);
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    /* ── Table base ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    /* ── Header background ── */
+    thead tr {
+      background: var(--tertiarySystemGroupedBackground);
+    }
+
+    thead th {
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--label);
+      border-bottom: 1px solid var(--separator);
+    }
+
+    /* ── Cell background ── */
+    tbody td {
+      padding: 10px 16px;
+      color: var(--label);
+      border-bottom: 1px solid var(--separator);
+      background: var(--secondarySystemGroupedBackground);
+    }
+
+    /* ── Alternating row (striped) background ── */
+    tbody tr:nth-child(even) td {
+      background: var(--tertiarySystemGroupedBackground);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── Accent cells ── */
+    td.accent-blue {
+      color: var(--systemBlue);
+    }
+
+    td.accent-green {
+      color: var(--systemGreen);
+    }
+
+    td.accent-red {
+      color: var(--systemRed);
+    }
+
+    td.accent-orange {
+      color: var(--systemOrange);
+    }
+
+    /* ── Variable reference table ── */
+    .ref-table thead tr {
+      background: var(--systemBlue);
+    }
+
+    .ref-table thead th {
+      color: #fff;
+      border-bottom-color: transparent;
+    }
+
+    /* ── Color legend ── */
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: var(--secondarySystemGroupedBackground);
+      border: 1px solid var(--separator);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--secondaryLabel);
+    }
+
+    .legend-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 1px solid var(--separator);
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="demo_card.html">Demo Card</a> |
+  <a href="demo_table.html">Demo Table</a> |
+  <a href="demo_dialog.html">Demo Dialog</a> |
+  <a href="demo_layout.html">Demo Layout</a> |
+
+  <h1>Table Color Demo</h1>
+  <p class="subtitle">@fhlnet/color-apple-theme — 示範 Apple iOS 系統色在 table 上的應用</p>
+
+  <div class="toolbar">
+    <button onclick="setTheme('light')">Light</button>
+    <button onclick="setTheme('dark')">Dark</button>
+    <button onclick="setTheme('hc-light')">HC Light</button>
+    <button onclick="setTheme('hc-dark')">HC Dark</button>
+    <button onclick="setTheme('')">System</button>
+  </div>
+
+  <!-- Color legend -->
+  <p class="section-title">使用的 CSS 變數</p>
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--systemGroupedBackground)"></div>
+      <span>html bg — <code>--systemGroupedBackground</code></span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--secondarySystemGroupedBackground)"></div>
+      <span>table bg — <code>--secondarySystemGroupedBackground</code></span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--tertiarySystemGroupedBackground)"></div>
+      <span>header / even row — <code>--tertiarySystemGroupedBackground</code></span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--separator)"></div>
+      <span>divider — <code>--separator</code></span>
+    </div>
+  </div>
+
+  <!-- Main demo table -->
+  <p class="section-title">範例：產品列表</p>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>產品名稱</th>
+          <th>類別</th>
+          <th>庫存</th>
+          <th>狀態</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>iPhone 16 Pro</td>
+          <td>手機</td>
+          <td class="accent-green">充足</td>
+          <td class="accent-blue">上架中</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>MacBook Air M3</td>
+          <td>筆電</td>
+          <td class="accent-orange">少量</td>
+          <td class="accent-blue">上架中</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>iPad mini 7</td>
+          <td>平板</td>
+          <td class="accent-red">缺貨</td>
+          <td class="accent-red">已下架</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>AirPods Pro 2</td>
+          <td>耳機</td>
+          <td class="accent-green">充足</td>
+          <td class="accent-blue">上架中</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Apple Watch S10</td>
+          <td>穿戴</td>
+          <td class="accent-orange">少量</td>
+          <td class="accent-blue">上架中</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Mac mini M4</td>
+          <td>桌機</td>
+          <td class="accent-green">充足</td>
+          <td class="accent-blue">上架中</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Reference table with blue header -->
+  <p class="section-title">變數對照表（table with accent header）</p>
+  <div class="card">
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th>角色</th>
+          <th>CSS 變數</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>頁面底色</td>
+          <td><code>--systemGroupedBackground</code></td>
+          <td>html / body 背景</td>
+        </tr>
+        <tr>
+          <td>Table 背景</td>
+          <td><code>--secondarySystemGroupedBackground</code></td>
+          <td>card / table 容器</td>
+        </tr>
+        <tr>
+          <td>Header 背景</td>
+          <td><code>--tertiarySystemGroupedBackground</code></td>
+          <td>thead 背景</td>
+        </tr>
+        <tr>
+          <td>Cell 背景（奇）</td>
+          <td><code>--secondarySystemGroupedBackground</code></td>
+          <td>奇數 row（與 table 同）</td>
+        </tr>
+        <tr>
+          <td>Cell 背景（偶）</td>
+          <td><code>--tertiarySystemGroupedBackground</code></td>
+          <td>偶數 row 交錯色</td>
+        </tr>
+        <tr>
+          <td>分隔線</td>
+          <td><code>--separator</code></td>
+          <td>row border</td>
+        </tr>
+        <tr>
+          <td>文字</td>
+          <td><code>--label</code></td>
+          <td>主要文字</td>
+        </tr>
+        <tr>
+          <td>輔助文字</td>
+          <td><code>--secondaryLabel</code></td>
+          <td>說明、副標</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function setTheme(theme) {
+      if (theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    }
+  </script>
+
+</body>
+
+</html>

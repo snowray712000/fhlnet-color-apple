@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple Color Theme Demo</title>
+  <link rel="stylesheet" href="../src/apple-color-ios.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--systemBackground);
+      color: var(--label);
+      padding: 24px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    h1 { font-size: 1.6rem; margin-bottom: 8px; }
+    p  { color: var(--secondaryLabel); margin-bottom: 24px; }
+
+    .toolbar {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .toolbar button {
+      padding: 6px 16px;
+      border: 1px solid var(--separator);
+      border-radius: 8px;
+      background: var(--secondarySystemBackground);
+      color: var(--label);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .toolbar button:hover { background: var(--systemFill); }
+
+    section { margin-bottom: 32px; }
+    section h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondaryLabel);
+      margin-bottom: 12px;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 8px;
+    }
+
+    .swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--separator);
+    }
+    .swatch-color {
+      height: 56px;
+      background: var(--color);
+    }
+    .swatch-label {
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      background: var(--secondarySystemBackground);
+      color: var(--secondaryLabel);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body>
+
+<a href="demo_card.html">Demo Card</a> |
+<a href="demo_table.html">Demo Table</a> |
+<a href="demo_dialog.html">Demo Dialog</a> |
+<a href="demo_layout.html">Demo Layout</a> |
+
+<h1>Apple iOS System Colors</h1>
+<p>@fhlnet/color-apple-theme — CSS custom property demo</p>
+
+<div class="toolbar">
+  <button onclick="setTheme('light')">Light</button>
+  <button onclick="setTheme('dark')">Dark</button>
+  <button onclick="setTheme('hc-light')">HC Light</button>
+  <button onclick="setTheme('hc-dark')">HC Dark</button>
+  <button onclick="setTheme('')">System</button>
+</div>
+
+<section>
+  <h2>Standard Colors</h2>
+  <div class="swatches" id="standard"></div>
+</section>
+
+<section>
+  <h2>Gray Scale</h2>
+  <div class="swatches" id="gray"></div>
+</section>
+
+<section>
+  <h2>Background</h2>
+  <div class="swatches" id="background"></div>
+</section>
+
+<section>
+  <h2>Labels &amp; Text</h2>
+  <div class="swatches" id="label"></div>
+</section>
+
+<script>
+  function setTheme(theme) {
+    if (theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }
+
+  const groups = {
+    standard: ['systemBlue','systemGreen','systemIndigo','systemOrange','systemPink','systemPurple','systemRed','systemTeal','systemYellow'],
+    gray:     ['systemGray','systemGray2','systemGray3','systemGray4','systemGray5','systemGray6'],
+    background: ['systemBackground','secondarySystemBackground','tertiarySystemBackground',
+                 'systemGroupedBackground','secondarySystemGroupedBackground','tertiarySystemGroupedBackground',
+                 'systemFill','secondarySystemFill','tertiarySystemFill','quaternarySystemFill'],
+    label:    ['label','secondaryLabel','tertiaryLabel','quaternaryLabel',
+               'link','placeholderText','separator','opaqueSeparator','lightText','darkText'],
+  };
+
+  Object.entries(groups).forEach(([id, names]) => {
+    const el = document.getElementById(id);
+    names.forEach(name => {
+      el.insertAdjacentHTML('beforeend', `
+        <div class="swatch">
+          <div class="swatch-color" style="--color: var(--${name})"></div>
+          <div class="swatch-label">--${name}</div>
+        </div>
+      `);
+    });
+  });
+</script>
+
+</body>
+</html>

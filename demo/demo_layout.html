@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fhlnet-color-apple · Layout Demo</title>
+
+  <!-- ✅ 使用方式：引入 apple-color-ios.css -->
+  <link rel="stylesheet" href="../src/apple-color-ios.css" />
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── App Shell ── */
+    html, body { height: 100%; }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background: var(--systemBackground);
+      color: var(--label);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+    }
+
+    /* ── Toolbar ── */
+    #toolbar {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      height: 52px;
+      background: var(--systemBlue);
+      color: #fff;
+      border-bottom: 1px solid var(--separator);
+    }
+
+    #app-title {
+      flex: 1;
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: 0.01em;
+    }
+
+    /* toggle button (右端) */
+    #btn-toggle-right {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      padding: 6px 10px;
+      font-size: 14px;
+      line-height: 1;
+    }
+    #btn-toggle-right:hover { background: rgba(255,255,255,0.3); }
+
+    /* theme toggle (右端旁) */
+    #btn-theme {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+    #btn-theme:hover { background: rgba(255,255,255,0.3); }
+
+    /* ── Main Content Area ── */
+    #content {
+      flex: 1 1 0;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── Left Panel ── */
+    #left-panel {
+      flex: 1 1 0;
+      overflow-y: auto;
+      padding: 20px;
+      background: var(--systemBackground);
+      color: var(--label);
+    }
+
+    /* ── Right Panel ── */
+    #right-panel {
+      width: 300px;
+      flex: 0 0 300px;
+      overflow-y: auto;
+      padding: 20px;
+      background: var(--secondarySystemBackground);
+      color: var(--label);
+      border-left: 1px solid var(--separator);
+      transition: transform 0.3s ease;
+    }
+
+    /* 收合狀態（桌面）*/
+    #right-panel.collapsed {
+      flex: 0 0 0;
+      width: 0;
+      padding: 0;
+      overflow: hidden;
+      border-left: none;
+    }
+
+    /* ── Footbar ── */
+    #footbar {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding: 0 16px;
+      background: var(--systemGray6);
+      color: var(--secondaryLabel);
+      font-size: 12px;
+      border-top: 1px solid var(--separator);
+    }
+
+    /* ── Overlay backdrop (手機用) ── */
+    #overlay {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 10;
+    }
+
+    /* ── 手機版 (< 640px) ── */
+    @media (max-width: 640px) {
+      #right-panel {
+        position: absolute;
+        top: 0; right: 0; bottom: 0;
+        z-index: 20;
+        transform: translateX(100%);
+        width: min(300px, 85vw);
+        flex: none;
+        border-left: 1px solid var(--separator);
+        border-radius: 0;
+      }
+
+      /* 手機開啟右側面板 */
+      #right-panel.open {
+        transform: translateX(0);
+      }
+
+      #overlay.visible { display: block; }
+
+      /* 手機下收合狀態沒意義，清掉 */
+      #right-panel.collapsed {
+        width: min(300px, 85vw);
+        padding: 20px;
+        overflow-y: auto;
+        border-left: 1px solid var(--separator);
+        transform: translateX(100%);
+      }
+    }
+
+    /* ── Demo content styles ── */
+    .panel-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondaryLabel);
+      margin-bottom: 12px;
+    }
+    .card {
+      background: var(--secondarySystemBackground);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      border: 1px solid var(--separator);
+    }
+    #right-panel .card {
+      background: var(--tertiarySystemBackground);
+    }
+    .card h3 { font-size: 15px; margin-bottom: 4px; }
+    .card p  { font-size: 13px; color: var(--secondaryLabel); }
+
+    .color-chip-row {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+    }
+    .color-chip {
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      border: 1px solid var(--separator);
+      title: attr(data-name);
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Toolbar -->
+  <header id="toolbar">    
+    <span id="app-title">App Title</span>
+    <button id="btn-theme" title="切換 Light / Dark">🌙</button>
+    <button id="btn-toggle-right" title="切換右側面板">⊟ 詳細</button>
+  </header>
+
+  <!-- Content Area -->
+  <div id="content">
+
+    <!-- Left (主要資料) -->
+    <main id="left-panel">
+      <div class="panel-label">主要資料 · Left Panel</div>
+
+      <a href="demo_card.html">Demo Card</a> |
+      <a href="demo_table.html">Demo Table</a> |
+      <a href="demo_dialog.html">Demo Dialog</a> |
+      <a href="demo_layout.html">Demo Layout</a> |
+      
+      <div class="card">
+        <h3>項目一</h3>
+        <p>使用 <code>--systemBackground</code> 作為主背景，<code>--label</code> 作為文字顏色。</p>
+      </div>
+      <div class="card">
+        <h3>項目二</h3>
+        <p>卡片使用 <code>--secondarySystemBackground</code>，邊框使用 <code>--separator</code>。</p>
+      </div>
+      <div class="card">
+        <h3>項目三</h3>
+        <p>支援 light / dark / high-contrast，以及 <code>prefers-color-scheme</code> 自動偵測。</p>
+      </div>
+
+      <div class="panel-label" style="margin-top:24px;">iOS 系統色彩預覽</div>
+      <div class="color-chip-row">
+        <div class="color-chip" style="background:var(--systemBlue)"    title="systemBlue"></div>
+        <div class="color-chip" style="background:var(--systemGreen)"   title="systemGreen"></div>
+        <div class="color-chip" style="background:var(--systemIndigo)"  title="systemIndigo"></div>
+        <div class="color-chip" style="background:var(--systemOrange)"  title="systemOrange"></div>
+        <div class="color-chip" style="background:var(--systemPink)"    title="systemPink"></div>
+        <div class="color-chip" style="background:var(--systemPurple)"  title="systemPurple"></div>
+        <div class="color-chip" style="background:var(--systemRed)"     title="systemRed"></div>
+        <div class="color-chip" style="background:var(--systemTeal)"    title="systemTeal"></div>
+        <div class="color-chip" style="background:var(--systemYellow)"  title="systemYellow"></div>
+        <div class="color-chip" style="background:var(--systemGray)"    title="systemGray"></div>
+        <div class="color-chip" style="background:var(--systemGray2)"   title="systemGray2"></div>
+        <div class="color-chip" style="background:var(--systemGray3)"   title="systemGray3"></div>
+        <div class="color-chip" style="background:var(--systemGray4)"   title="systemGray4"></div>
+        <div class="color-chip" style="background:var(--systemGray5)"   title="systemGray5"></div>
+        <div class="color-chip" style="background:var(--systemGray6)"   title="systemGray6"></div>
+      </div>
+    </main>
+
+    <!-- Overlay (手機點擊關閉右側) -->
+    <div id="overlay"></div>
+
+    <!-- Right (次要資料) -->
+    <aside id="right-panel">
+      <div class="panel-label">次要資料 · Right Panel</div>
+      <div class="card">
+        <h3>詳細資訊</h3>
+        <p>背景使用 <code>--secondarySystemBackground</code>。</p>
+      </div>
+      <div class="card">
+        <h3>手機行為</h3>
+        <p>寬度 &lt; 640px 時，此面板以 drawer 方式蓋住左側，點擊遮罩或按鈕關閉。</p>
+      </div>
+      <div class="card">
+        <h3>桌面行為</h3>
+        <p>按右端「⊟ 詳細」按鈕可收合，左側會自動填滿。</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footbar -->
+  <footer id="footbar">
+    背景：<code style="margin:0 4px;">--systemGray6</code> ·
+    文字：<code style="margin:0 4px;">--secondaryLabel</code>
+  </footer>
+
+  <script>
+    const rightPanel   = document.getElementById('right-panel');
+    const overlay      = document.getElementById('overlay');
+    const btnToggle    = document.getElementById('btn-toggle-right');
+    const btnTheme     = document.getElementById('btn-theme');
+    const isMobile     = () => window.innerWidth <= 640;
+
+    function openRight() {
+      rightPanel.classList.add('open');
+      rightPanel.classList.remove('collapsed');
+      overlay.classList.add('visible');
+    }
+    function closeRight() {
+      if (isMobile()) {
+        rightPanel.classList.remove('open');
+        overlay.classList.remove('visible');
+      } else {
+        rightPanel.classList.toggle('collapsed');
+      }
+    }
+
+    btnToggle.addEventListener('click', () => {
+      if (isMobile()) {
+        rightPanel.classList.contains('open') ? closeRight() : openRight();
+      } else {
+        closeRight();
+      }
+    });
+
+    overlay.addEventListener('click', closeRight);
+
+    // 視窗大小改變時重設狀態
+    window.addEventListener('resize', () => {
+      if (!isMobile()) {
+        overlay.classList.remove('visible');
+        rightPanel.classList.remove('open');
+      }
+    });
+
+    // 主題切換：light / dark / hc-light / hc-dark
+    const themes = ['light', 'dark', 'hc-light', 'hc-dark'];
+    const themeLabels = { light: '☀️', dark: '🌙', 'hc-light': '☀️⬆', 'hc-dark': '🌙⬆' };
+    let themeIdx = 0;
+    btnTheme.addEventListener('click', () => {
+      themeIdx = (themeIdx + 1) % themes.length;
+      document.documentElement.setAttribute('data-theme', themes[themeIdx]);
+      btnTheme.textContent = themeLabels[themes[themeIdx]];
+    });
+  </script>
+</body>
+</html>

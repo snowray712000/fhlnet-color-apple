@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple Color Theme — Dialog Demo</title>
+  <link rel="stylesheet" href="../src/apple-color-ios.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Page ── */
+    html { background: var(--systemGroupedBackground); }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--label);
+      padding: 32px 24px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    h1 { font-size: 1.5rem; margin-bottom: 4px; }
+    .subtitle { color: var(--secondaryLabel); font-size: 0.875rem; margin-bottom: 20px; }
+
+    /* ── Toolbar ── */
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .toolbar button {
+      padding: 6px 16px;
+      border: 1px solid var(--separator);
+      border-radius: 8px;
+      background: var(--secondarySystemBackground);
+      color: var(--label);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .toolbar button:hover { background: var(--tertiarySystemFill); }
+
+    /* ── Canvas area ── */
+    .canvas-area {
+      background: var(--secondarySystemGroupedBackground);
+      border: 1px solid var(--separator);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    canvas {
+      border-radius: 8px;
+      border: 1px solid var(--separator);
+      display: block;
+    }
+
+    /* ── Color button ── */
+    .color-btn-row {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .color-btn-label { font-size: 0.875rem; color: var(--secondaryLabel); }
+    #colorBtn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid var(--separator);
+      border-radius: 8px;
+      background: var(--secondarySystemBackground);
+      color: var(--label);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    #colorBtn:hover { background: var(--tertiarySystemFill); }
+    #colorSwatch {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--separator);
+      display: inline-block;
+    }
+
+    /* ── Dialog backdrop ── */
+    dialog {
+      border: none;
+      padding: 0;
+      border-radius: 14px;
+      background: transparent;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+      max-width: 400px;
+      width: 92vw;
+    }
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* ── Dialog structure ── */
+    .dlg-header {
+      background: var(--tertiarySystemGroupedBackground);
+      padding: 14px 18px;
+      border-radius: 14px 14px 0 0;
+      border-bottom: 1px solid var(--separator);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .dlg-header h2 { font-size: 1rem; color: var(--label); }
+    .dlg-close {
+      background: none; border: none;
+      color: var(--systemBlue); cursor: pointer; font-size: 0.9rem; padding: 0;
+    }
+
+    .dlg-body {
+      background: var(--secondarySystemGroupedBackground);
+      padding: 18px;
+    }
+
+    .dlg-footer {
+      background: var(--tertiarySystemGroupedBackground);
+      padding: 12px 18px;
+      border-radius: 0 0 14px 14px;
+      border-top: 1px solid var(--separator);
+      display: flex; justify-content: flex-end; gap: 10px;
+    }
+    .dlg-footer button {
+      padding: 7px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--separator);
+      cursor: pointer; font-size: 0.875rem;
+    }
+    .btn-cancel {
+      background: var(--secondarySystemBackground);
+      color: var(--label);
+    }
+    .btn-confirm {
+      background: var(--systemBlue);
+      color: #fff; border-color: transparent;
+    }
+    .btn-cancel:hover { background: var(--tertiarySystemFill); }
+    .btn-confirm:hover { opacity: 0.88; }
+
+    /* ── Standard color grid ── */
+    .section-label {
+      font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--secondaryLabel);
+      margin-bottom: 8px;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 32px);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .color-chip {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .color-chip:hover { transform: scale(1.15); }
+    .color-chip.selected {
+      border-color: var(--label);
+      box-shadow: 0 0 0 1px var(--secondarySystemGroupedBackground);
+    }
+
+    /* ── Custom color row ── */
+    .custom-row {
+      display: flex; align-items: center; gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--separator);
+    }
+    .custom-row label { font-size: 0.875rem; color: var(--label); flex: 1; }
+    #customColorInput {
+      width: 40px; height: 32px;
+      border-radius: 6px; border: 1px solid var(--separator);
+      cursor: pointer; padding: 2px;
+      background: var(--secondarySystemBackground);
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="demo_card.html">Demo Card</a> |
+<a href="demo_table.html">Demo Table</a> |
+<a href="demo_dialog.html">Demo Dialog</a> |
+<a href="demo_layout.html">Demo Layout</a> |
+
+  <h1 style="margin-top:16px">Dialog Color Demo</h1>
+  <p class="subtitle">@fhlnet/color-apple-theme — 示範 Apple iOS 系統色在 dialog 上的應用</p>
+
+  <div class="toolbar">
+    <button onclick="setTheme('light')">Light</button>
+    <button onclick="setTheme('dark')">Dark</button>
+    <button onclick="setTheme('hc-light')">HC Light</button>
+    <button onclick="setTheme('hc-dark')">HC Dark</button>
+    <button onclick="setTheme('')">System</button>
+  </div>
+
+  <!-- Canvas area -->
+  <div class="canvas-area">
+    <canvas id="canvas" width="320" height="200"></canvas>
+    <div class="color-btn-row">
+      <span class="color-btn-label">橢圓填色：</span>
+      <button id="colorBtn" onclick="openDialog()">
+        <span id="colorSwatch"></span>
+        <span id="colorBtnText">選擇顏色</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Color picker dialog -->
+  <dialog id="colorDialog">
+    <div class="dlg-header">
+      <h2>選擇顏色</h2>
+      <button class="dlg-close" onclick="closeDialog()">取消</button>
+    </div>
+
+    <div class="dlg-body">
+      <p class="section-label">Standard Colors</p>
+      <div class="color-grid" id="colorGrid"></div>
+
+      <div class="custom-row">
+        <label for="customColorInput">自訂顏色</label>
+        <input type="color" id="customColorInput" value="#ff6961"
+          oninput="selectCustom(this.value)" />
+      </div>
+    </div>
+
+    <div class="dlg-footer">
+      <button class="btn-cancel" onclick="closeDialog()">取消</button>
+      <button class="btn-confirm" onclick="confirmColor()">確定</button>
+    </div>
+  </dialog>
+
+  <script>
+    // ── Theme ──────────────────────────────────────────
+    function setTheme(theme) {
+      if (theme) document.documentElement.setAttribute('data-theme', theme);
+      else document.documentElement.removeAttribute('data-theme');
+      requestAnimationFrame(() => drawEllipse(activeColor.value));
+    }
+
+    // ── Standard color definitions ─────────────────────
+    const STANDARD_COLORS = [
+      { name: 'systemBlue',   var: '--systemBlue'   },
+      { name: 'systemGreen',  var: '--systemGreen'  },
+      { name: 'systemIndigo', var: '--systemIndigo' },
+      { name: 'systemOrange', var: '--systemOrange' },
+      { name: 'systemPink',   var: '--systemPink'   },
+      { name: 'systemPurple', var: '--systemPurple' },
+      { name: 'systemRed',    var: '--systemRed'    },
+      { name: 'systemTeal',   var: '--systemTeal'   },
+      { name: 'systemYellow', var: '--systemYellow' },
+      { name: 'systemGray',   var: '--systemGray'   },
+      { name: 'systemGray2',  var: '--systemGray2'  },
+      { name: 'systemGray3',  var: '--systemGray3'  },
+    ];
+
+    // Resolve a CSS variable to its computed hex value
+    function resolveVar(cssVar) {
+      return getComputedStyle(document.documentElement)
+        .getPropertyValue(cssVar).trim();
+    }
+
+    // ── Build color grid ───────────────────────────────
+    const grid = document.getElementById('colorGrid');
+
+    STANDARD_COLORS.forEach(c => {
+      const chip = document.createElement('button');
+      chip.className = 'color-chip';
+      chip.title = c.name;
+      chip.dataset.cssVar = c.var;
+      chip.dataset.type = 'standard';
+      chip.style.background = `var(${c.var})`;
+      chip.onclick = () => selectChip(chip);
+      grid.appendChild(chip);
+    });
+
+    // ── State ──────────────────────────────────────────
+    let pendingColor = null;   // { value: '#hex' | 'var(--x)', label: string }
+    let activeColor  = { value: 'var(--systemBlue)', label: 'systemBlue' };
+
+    // ── Canvas drawing ─────────────────────────────────
+    const canvas = document.getElementById('canvas');
+    const ctx    = canvas.getContext('2d');
+
+    function drawEllipse(fillColor) {
+      // Background
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = resolveVar('--systemBackground') || '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Ellipse
+      ctx.beginPath();
+      ctx.ellipse(160, 100, 110, 65, 0, 0, Math.PI * 2);
+      ctx.fillStyle = fillColor.startsWith('var(')
+        ? resolveVar(fillColor.slice(4, -1))
+        : fillColor;
+      ctx.fill();
+    }
+
+    // Initial draw
+    drawEllipse(activeColor.value);
+    updateBtn(activeColor);
+
+    function updateBtn(color) {
+      const swatch = document.getElementById('colorSwatch');
+      const text   = document.getElementById('colorBtnText');
+      swatch.style.background = color.value.startsWith('var(')
+        ? `var(${color.value.slice(4, -1)})`
+        : color.value;
+      text.textContent = color.label;
+    }
+
+    // ── Dialog ─────────────────────────────────────────
+    function openDialog() {
+      pendingColor = { ...activeColor };
+      refreshChipSelection();
+      document.getElementById('colorDialog').showModal();
+    }
+
+    function closeDialog() {
+      document.getElementById('colorDialog').close();
+    }
+
+    function confirmColor() {
+      if (pendingColor) {
+        activeColor = { ...pendingColor };
+        drawEllipse(activeColor.value);
+        updateBtn(activeColor);
+      }
+      closeDialog();
+    }
+
+    function selectChip(chip) {
+      // Deselect all
+      grid.querySelectorAll('.color-chip').forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      pendingColor = {
+        value: `var(${chip.dataset.cssVar})`,
+        label: chip.title,
+      };
+    }
+
+    function selectCustom(hexValue) {
+      grid.querySelectorAll('.color-chip').forEach(c => c.classList.remove('selected'));
+      pendingColor = { value: hexValue, label: hexValue };
+    }
+
+    function refreshChipSelection() {
+      grid.querySelectorAll('.color-chip').forEach(c => c.classList.remove('selected'));
+      if (pendingColor && pendingColor.value.startsWith('var(')) {
+        const cssVar = pendingColor.value.slice(4, -1);
+        const chip = grid.querySelector(`[data-css-var="${cssVar}"]`);
+        if (chip) chip.classList.add('selected');
+      }
+    }
+  </script>
+
+</body>
+</html>
